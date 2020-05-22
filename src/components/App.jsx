@@ -1,8 +1,10 @@
 import React from 'react';
-import Todo from './Todo';
+import TodoList from './TodoList';
+
+const arr = ['hello', 'world'];
 
 export default function App() {
     return (
-        <div> <Todo text='Hello world'/> </div>
+        <div> <TodoList todos={arr}/> </div>
     )
 }
