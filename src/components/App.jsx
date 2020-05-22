@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoList from './TodoList';
-
-const arr = ['hello', 'world'];
+import Form from './Form';
 
 export default function App() {
+
+    const [todos, setTodos] = useState([]);
+
+    function addTodo(newTodo) {
+        const newTodos = todos.slice();
+        newTodos.push(newTodo);
+        setTodos(newTodos);
+    }
+
     return (
-        <div> <TodoList todos={arr}/> </div>
+        <div>
+            <Form createTodo={addTodo} />
+            <TodoList todos={todos} />
+        </div>
     )
+
 }
