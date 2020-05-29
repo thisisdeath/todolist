@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import TodoList from './TodoList';
+import ArticlesList from './ArticlesList';
 import Form from './Form';
-import './App/App.less'
+import './App/App.less';
 
 export default function App() {
 
-    const [todos, setTodos] = useState([]);
+    const [articles, setArticles] = useState([]);
 
-    function addTodo(newTodo) {
-        const newTodos = todos.slice();
-        newTodos.push(newTodo);
-        setTodos(newTodos);
+    function addArticle(newArticle) {
+        const newArticles = articles.slice();
+        newArticles.push(newArticle);
+        setArticles(newArticles);
     }
 
     return (
-        <div>
-            <Form createTodo={addTodo} />
-            <TodoList todos={todos} />
+        <div className='container'>
+            <header className='header'>
+                <h1 className='header__heading'>Редактор статей</h1>
+                <Form createArticle={addArticle}/>
+            </header>
+            <main>
+                <ArticlesList articles={articles}/>
+            </main>
         </div>
     )
-
 }
